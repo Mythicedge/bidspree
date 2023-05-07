@@ -51,7 +51,7 @@ def login_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse("index"))
+    return render(request, "auctions/logout.html")
 
 
 def register(request):

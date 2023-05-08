@@ -113,6 +113,11 @@ def details(request, id):
     bid = None
     if value is not None:
         bid = Bid.objects.filter(bidValue=value)[0]
+
+    if item.endDate <= timezone.now() and item.active:
+        item.active = False
+        item.save()                                     # end auction when end date is surpassed
+
     return render(request, "auctions/details.html", {
         'item': item,
         'bids': bids,
@@ -184,10 +189,14 @@ def end(request, itemId):
     auctionListing = AuctionListing.objects.get(id=itemId)
     user = request.user
     if auctionListing.user == user:
-        auctionListing.active = False
-        auctionListing.save()
-        messages.success(
-            request, f'Auction for {auctionListing.name} successfully closed!')
+        if auctionListing.active:
+            auctionListing.active = False
+            auctionListing.save()
+            messages.success(
+                request, f'Auction for {auctionListing.name} successfully closed!')
+        else:
+            messages.warning(
+                request, 'This auction listing has already ended!')
     else:
         messages.info(
             request, 'You are not authorized to end this listing!')

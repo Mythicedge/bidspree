@@ -12,7 +12,7 @@ pip install psycopg2
 
 INSTRUCTIONS:
 
-Type the following into the terminal:
+Open your preferred IDE and type the following into the terminal:
 
 cd .\mysite\        
 

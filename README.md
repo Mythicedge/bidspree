@@ -22,3 +22,9 @@ python manage.py migrate
 
 python manage.py runserver
 
+Then paste the link http://127.0.0.1:8000/ into your browser.
+
+To access the admin page, go to http://127.0.0.1:8000/admin
+
+
+

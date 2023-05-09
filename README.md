@@ -1,17 +1,18 @@
 # bidspree
 
-PREREQUISITES
+PREREQUISITES:
+
 Python 3.11.3
-Django installed  (pip install Django)
+
+Django installed  (pip install Django) <- type it into the terminal
 
 pip install psycopg2
+
+
 
 INSTRUCTIONS:
-Python 3.11.3
 
-
-
-pip install psycopg2
+Type the following into the terminal:
 
 cd .\mysite\        
 
